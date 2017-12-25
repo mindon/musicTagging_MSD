@@ -100,7 +100,7 @@ get_last_output = K.function([model.layers[0].input, K.learning_phase()], [layer
 all_size = len(all_list)
 for iter2 in range(int(nst*all_size/partition),int((nst+1)*all_size/partition)):
 	# check existence
-	save_name = save_path + '/' + all_list[iter2].replace('.wav','.json')
+	save_name = save_path + '/' + os.path.basename(all_list[iter2]).replace('.wav','.json')
 	
 	if not os.path.exists(os.path.dirname(save_name)):
 		os.makedirs(os.path.dirname(save_name))
